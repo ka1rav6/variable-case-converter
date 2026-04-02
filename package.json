@@ -1,0 +1,245 @@
+{
+  "name": "name-case-converter",
+  "displayName": "Variable Name Case Converter",
+  "description": "Convert all user-defined variable and container names in a file (or selection) to camelCase, PascalCase, snake_case, or kebab-case — while preserving built-in functions and keywords.",
+  "version": "1.1.1",
+  "publisher": "KairavDutta",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Formatters",
+    "Other"
+  ],
+  "keywords": [
+    "rename",
+    "camelcase",
+    "snakecase",
+    "kebabcase",
+    "pascalcase",
+    "variable",
+    "identifier",
+    "refactor"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ka1rav6/variable-case-converter"
+  },
+  "bugs": {
+    "url": "https://github.com/ka1rav6/variable-case-converter/issues"
+  },
+  "homepage": "https://github.com/ka1rav6/variable-case-converter#readme",
+  "license": "MIT",
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "variableCaseConverter.smart",
+        "title": "Convert Identifiers (Smart — detects selection)",
+        "category": "Case Converter"
+      },
+      {
+        "command": "variableCaseConverter.convertFile",
+        "title": "Convert Whole File (choose case…)",
+        "category": "Case Converter"
+      },
+      {
+        "command": "variableCaseConverter.convertSelection",
+        "title": "Convert Selection (choose case…)",
+        "category": "Case Converter"
+      },
+      {
+        "command": "variableCaseConverter.file.camelCase",
+        "title": "File → camelCase",
+        "category": "Case Converter"
+      },
+      {
+        "command": "variableCaseConverter.file.PascalCase",
+        "title": "File → PascalCase",
+        "category": "Case Converter"
+      },
+      {
+        "command": "variableCaseConverter.file.snake_case",
+        "title": "File → snake_case",
+        "category": "Case Converter"
+      },
+      {
+        "command": "variableCaseConverter.file.kebabCase",
+        "title": "File → kebab-case",
+        "category": "Case Converter"
+      },
+      {
+        "command": "variableCaseConverter.selection.camelCase",
+        "title": "Selection → camelCase",
+        "category": "Case Converter"
+      },
+      {
+        "command": "variableCaseConverter.selection.PascalCase",
+        "title": "Selection → PascalCase",
+        "category": "Case Converter"
+      },
+      {
+        "command": "variableCaseConverter.selection.snake_case",
+        "title": "Selection → snake_case",
+        "category": "Case Converter"
+      },
+      {
+        "command": "variableCaseConverter.selection.kebabCase",
+        "title": "Selection → kebab-case",
+        "category": "Case Converter"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "variableCaseConverter.smart",
+        "key": "ctrl+shift+alt+c",
+        "mac": "cmd+shift+alt+c",
+        "when": "editorTextFocus",
+        "title": "Smart convert (auto-detects selection)"
+      },
+      {
+        "command": "variableCaseConverter.convertFile",
+        "key": "ctrl+shift+alt+f",
+        "mac": "cmd+shift+alt+f",
+        "when": "editorTextFocus",
+        "title": "Convert whole file (pick case)"
+      },
+      {
+        "command": "variableCaseConverter.convertSelection",
+        "key": "ctrl+shift+alt+s",
+        "mac": "cmd+shift+alt+s",
+        "when": "editorTextFocus && editorHasSelection",
+        "title": "Convert selection (pick case)"
+      },
+      {
+        "command": "variableCaseConverter.file.camelCase",
+        "key": "ctrl+shift+alt+1",
+        "mac": "cmd+shift+alt+1",
+        "when": "editorTextFocus",
+        "title": "File → camelCase (instant)"
+      },
+      {
+        "command": "variableCaseConverter.file.PascalCase",
+        "key": "ctrl+shift+alt+2",
+        "mac": "cmd+shift+alt+2",
+        "when": "editorTextFocus",
+        "title": "File → PascalCase (instant)"
+      },
+      {
+        "command": "variableCaseConverter.file.snake_case",
+        "key": "ctrl+shift+alt+3",
+        "mac": "cmd+shift+alt+3",
+        "when": "editorTextFocus",
+        "title": "File → snake_case (instant)"
+      },
+      {
+        "command": "variableCaseConverter.file.kebabCase",
+        "key": "ctrl+shift+alt+4",
+        "mac": "cmd+shift+alt+4",
+        "when": "editorTextFocus",
+        "title": "File → kebab-case (instant)"
+      },
+      {
+        "command": "variableCaseConverter.selection.camelCase",
+        "key": "ctrl+shift+alt+5",
+        "mac": "cmd+shift+alt+5",
+        "when": "editorTextFocus && editorHasSelection",
+        "title": "Selection → camelCase (instant)"
+      },
+      {
+        "command": "variableCaseConverter.selection.PascalCase",
+        "key": "ctrl+shift+alt+6",
+        "mac": "cmd+shift+alt+6",
+        "when": "editorTextFocus && editorHasSelection",
+        "title": "Selection → PascalCase (instant)"
+      },
+      {
+        "command": "variableCaseConverter.selection.snake_case",
+        "key": "ctrl+shift+alt+7",
+        "mac": "cmd+shift+alt+7",
+        "when": "editorTextFocus && editorHasSelection",
+        "title": "Selection → snake_case (instant)"
+      },
+      {
+        "command": "variableCaseConverter.selection.kebabCase",
+        "key": "ctrl+shift+alt+8",
+        "mac": "cmd+shift+alt+8",
+        "when": "editorTextFocus && editorHasSelection",
+        "title": "Selection → kebab-case (instant)"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "submenu": "variableCaseConverter.contextMenu",
+          "group": "1_modification@99",
+          "when": "editorTextFocus"
+        }
+      ],
+      "variableCaseConverter.contextMenu": [
+        {
+          "command": "variableCaseConverter.convertSelection",
+          "group": "1_selection@1",
+          "when": "editorHasSelection"
+        },
+        {
+          "command": "variableCaseConverter.selection.camelCase",
+          "group": "1_selection@2",
+          "when": "editorHasSelection"
+        },
+        {
+          "command": "variableCaseConverter.selection.PascalCase",
+          "group": "1_selection@3",
+          "when": "editorHasSelection"
+        },
+        {
+          "command": "variableCaseConverter.selection.snake_case",
+          "group": "1_selection@4",
+          "when": "editorHasSelection"
+        },
+        {
+          "command": "variableCaseConverter.selection.kebabCase",
+          "group": "1_selection@5",
+          "when": "editorHasSelection"
+        },
+        {
+          "command": "variableCaseConverter.convertFile",
+          "group": "2_file@1"
+        },
+        {
+          "command": "variableCaseConverter.file.camelCase",
+          "group": "2_file@2"
+        },
+        {
+          "command": "variableCaseConverter.file.PascalCase",
+          "group": "2_file@3"
+        },
+        {
+          "command": "variableCaseConverter.file.snake_case",
+          "group": "2_file@4"
+        },
+        {
+          "command": "variableCaseConverter.file.kebabCase",
+          "group": "2_file@5"
+        }
+      ]
+    },
+    "submenus": [
+      {
+        "id": "variableCaseConverter.contextMenu",
+        "label": "$(symbol-variable) Variable Case Converter"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/vscode": "^1.75.0",
+    "typescript": "^5.0.0"
+  }
+}
