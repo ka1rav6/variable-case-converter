@@ -2,7 +2,7 @@
   "name": "name-case-converter",
   "displayName": "Variable Name Case Converter",
   "description": "Convert all user-defined variable and container names in a file (or selection) to camelCase, PascalCase, snake_case, or kebab-case — while preserving built-in functions and keywords.",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "publisher": "KairavDutta",
   "engines": {
     "vscode": "^1.75.0"
